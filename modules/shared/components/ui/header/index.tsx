@@ -1,4 +1,6 @@
 import React from 'react';
+// hooks
+import { useRouter } from 'next/router';
 // components
 import { Logo } from '@md-ui/logos/main';
 // views
@@ -6,6 +8,8 @@ import { LogoText, LWrapper, WHeader } from './views';
 import Button from '@md-ui/button/main';
 
 const Header = () => {
+  const { push } = useRouter();
+
   const [isScroll, setIsScroll] = React.useState(false);
 
   React.useEffect(() => {
@@ -24,14 +28,18 @@ const Header = () => {
     };
   }, []);
 
+  const onSingIn = () => push('/sign-in');
+
+  const onHome = () => push('/');
+
   return (
     <WHeader isScroll={isScroll}>
-      <LWrapper>
+      <LWrapper onClick={onHome}>
         <Logo />
 
         <LogoText isScroll={isScroll}>voyage</LogoText>
       </LWrapper>
-      <Button preset='primary' title='Login' />
+      <Button preset='primary' title='Sign in' onClick={onSingIn} />
     </WHeader>
   );
 };
