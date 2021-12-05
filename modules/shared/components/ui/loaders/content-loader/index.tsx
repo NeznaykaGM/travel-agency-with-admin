@@ -16,13 +16,16 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.templates.absolute}
 `;
 
-const ContentLoader: React.FC<Props> = ({ children, isLoading }) =>
-  isLoading ? (
-    <Wrapper>
-      <Loader />
-    </Wrapper>
-  ) : (
-    <>{children}</>
-  );
+const ContentLoader: React.FC<Props> = ({ children, isLoading }) => {
+  if (isLoading) {
+    return (
+      <Wrapper>
+        <Loader />
+      </Wrapper>
+    );
+  }
+
+  return <>{children}</>;
+};
 
 export { ContentLoader };
