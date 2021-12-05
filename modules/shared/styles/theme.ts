@@ -11,9 +11,11 @@ export const colors = {
   green200: '#87cc43',
   // orange
   orange400: '#fe7a15',
+  orange100: '#ffe5d3',
   // red
   red500: '#ff453a',
   // gray
+  gray100: '#f3f3f3',
   gray200: '#869DB2',
   gray350: '#4C5A66',
   gray400: '#39434D',

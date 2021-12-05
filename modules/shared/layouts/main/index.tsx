@@ -3,10 +3,14 @@ import Header from '@md-ui/header';
 // view components
 import { Wrapper } from './views';
 
-const MainLayout: React.FC = ({ children }) => {
+interface Props {
+  hideSignInButton?: boolean;
+}
+
+const MainLayout: React.FC<Props> = ({ children, hideSignInButton }) => {
   return (
     <Wrapper>
-      <Header />
+      <Header hideSignInButton={hideSignInButton} />
       {children}
     </Wrapper>
   );

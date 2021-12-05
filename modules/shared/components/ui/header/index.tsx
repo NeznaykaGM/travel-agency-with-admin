@@ -7,7 +7,11 @@ import { Logo } from '@md-ui/logos/main';
 import { LogoText, LWrapper, WHeader } from './views';
 import Button from '@md-ui/button/main';
 
-const Header = () => {
+interface Props {
+  hideSignInButton?: boolean;
+}
+
+const Header: React.FC<Props> = ({ hideSignInButton }) => {
   const { push } = useRouter();
 
   const [isScroll, setIsScroll] = React.useState(false);
@@ -39,7 +43,7 @@ const Header = () => {
 
         <LogoText isScroll={isScroll}>voyage</LogoText>
       </LWrapper>
-      <Button preset='primary' title='Sign in' onClick={onSingIn} />
+      {!hideSignInButton && <Button preset='primary' title='Sign in' onClick={onSingIn} />}
     </WHeader>
   );
 };

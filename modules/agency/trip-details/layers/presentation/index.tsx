@@ -1,11 +1,11 @@
 import React from 'react';
 // context
-import { TravelDetailsAPIContext } from '../api';
+import { TripDetailsAPIContext } from '../api';
 // components
 import { ContentLoader } from '@md-ui/loaders/content-loader';
 
-const TravelDetailsPresentation = () => {
-  const { travel, isLoading } = React.useContext(TravelDetailsAPIContext);
+const TripDetailsPresentation = () => {
+  const { travel, isLoading } = React.useContext(TripDetailsAPIContext);
 
   return (
     <ContentLoader isLoading={isLoading}>
@@ -14,4 +14,4 @@ const TravelDetailsPresentation = () => {
   );
 };
 
-export default TravelDetailsPresentation;
+export default TripDetailsPresentation;

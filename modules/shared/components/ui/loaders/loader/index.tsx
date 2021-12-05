@@ -1,7 +1,8 @@
 import React from 'react';
-// views
-import { Circle } from './views';
+import { Wrapper } from './views';
 
-const Loader = () => <Circle />;
+const Loader = () => {
+  return <Wrapper />;
+};
 
 export { Loader };

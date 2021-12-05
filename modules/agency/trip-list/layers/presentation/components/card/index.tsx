@@ -2,13 +2,14 @@ import React from 'react';
 // hooks
 import { useRouter } from 'next/router';
 // types
-import { Travel } from '@md-modules/shared/mock';
+import { Trip } from '@md-modules/shared/mock';
+// components
+import ImageButton from '@md-ui/button/image-button';
 // views
 import { Icon, PriceWrapper, Price, LPWrapper, SubTitle, Title, LPContainer, Photo, Wrapper } from './views';
-import ImageButton from '@md-ui/button/image-button';
 
 interface Props {
-  data: Travel;
+  data: Trip;
 }
 
 const Card: React.FC<Props> = ({ data }) => {

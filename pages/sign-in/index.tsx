@@ -1,5 +1,6 @@
 import React from 'react';
+import SignIn from '@md-modules/agency/sign-in/sign-in';
 
-const SignInPage = () => <SignInPage />;
+const SignInPage = () => <SignIn />;
 
 export default SignInPage;

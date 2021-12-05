@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { MainLayout } from '@md-modules/shared/layouts/main';
-import { TravelListContainer } from '@md-modules/agency/travel-list';
+import { TripListContainer } from '@md-modules/agency/trip-list';
 
-const TravelListPage = () => (
+const TripListPage = () => (
   <MainLayout>
-    <TravelListContainer />
+    <TripListContainer />
   </MainLayout>
 );
 
-export default TravelListPage;
+export default TripListPage;
