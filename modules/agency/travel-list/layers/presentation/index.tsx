@@ -1,18 +1,23 @@
 import React from 'react';
-//context
+// context
 import { TravelListAPIContext } from '@md-modules/agency/travel-list/layers/api';
 // components
 import { ContentLoader } from '@md-ui/loaders/content-loader';
+import Card from '@md-modules/agency/travel-list/layers/presentation/components/card';
 // view
-import { Wrapper } from './views';
+import { CardsWrapper } from './views';
 
 const TravelListPresentation = () => {
-  const { isLoading } = React.useContext(TravelListAPIContext);
+  const { isLoading, travels } = React.useContext(TravelListAPIContext);
 
   return (
-    <Wrapper>
-      <ContentLoader isLoading={isLoading}>Hello</ContentLoader>
-    </Wrapper>
+    <ContentLoader isLoading={isLoading}>
+      <CardsWrapper>
+        {travels?.map((travel) => (
+          <Card key={travel.id} data={travel} />
+        ))}
+      </CardsWrapper>
+    </ContentLoader>
   );
 };
 

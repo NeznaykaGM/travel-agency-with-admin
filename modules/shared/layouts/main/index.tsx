@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Header from '@md-ui/headers';
+import Header from '@md-ui/header';
 // view components
 import { Wrapper } from './views';
 

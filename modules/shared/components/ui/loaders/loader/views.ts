@@ -6,7 +6,7 @@ export const Circle = styled.div`
   border-radius: 50%;
   animation: spin 2s linear infinite;
 
-  border-top: 10px solid ${({ theme }) => theme.colors.blue600};
+  border-top: 10px solid ${({ theme }) => theme.colors.purple600};
   border: 10px solid ${({ theme }) => theme.colors.white};
 
   @keyframes spin {

@@ -3,16 +3,20 @@ import { DefaultTheme, css } from 'styled-components';
 export const colors = {
   // blue
   blue400: '#0070f3',
-  blue600: '#5856d6',
+  blue600: '#3011BC',
+  // purple
+  purple600: '#5856d6',
   // green
   green300: '#2ab736',
   green200: '#87cc43',
+  // orange
+  orange400: '#fe7a15',
   // red
   red500: '#ff453a',
   // gray
-  gray400: '#272d3d',
-  gray500: '#21293d',
-  gray600: '#191e2d',
+  gray200: '#869DB2',
+  gray350: '#4C5A66',
+  gray400: '#39434D',
   // other
   white: '#fff'
 };
@@ -33,6 +37,11 @@ export const templates = {
   centerItems: css`
     display: flex;
     align-items: center;
+  `,
+  ellipsis: css`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   `
 };
 

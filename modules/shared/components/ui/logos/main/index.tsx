@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Logo = () => (
   <Link href='/' passHref>
     <a>
-      <img src='/static/logos/APP-logo.png' alt='logo' />
+      <img src='/static/logos/logo.png' alt='logo' />
     </a>
   </Link>
 );

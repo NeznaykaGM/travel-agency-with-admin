@@ -1,21 +1,22 @@
 import styled from 'styled-components';
+import { ButtonPresets, buttonPresets } from '@md-ui/button/main/presets';
 
-export const WButton = styled.div`
-  text-transform: uppercase;
-  transition: all ease 0.2s;
+export const WButton = styled.div<{ preset?: ButtonPresets }>`
+  font-weight: 700;
   text-align: center;
   cursor: pointer;
-  border-radius: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 8px 24px;
+  transition: all ease 0.2s;
 
-  background: ${({ theme }) => theme.colors.blue600};
-
-  &:active {
-    top: 0.1em;
-  }
+  color: ${({ theme }) => theme.colors.white};
 
   &:hover {
-    background: ${({ theme }) => theme.colors.green300};
+    background: ${({ theme }) => theme.colors.blue600};
   }
+
+  ${({ preset }) => preset && buttonPresets[preset]};
 `;
 
 export const BWrapper = styled.div`

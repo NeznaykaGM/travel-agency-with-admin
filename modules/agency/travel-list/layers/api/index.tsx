@@ -2,15 +2,15 @@ import * as React from 'react';
 // utils
 import { useQuery } from '@md-utils/mock/query';
 // mock
-import { Travels, TRAVELS } from '@md-modules/shared/mock';
+import { Travel, TRAVELS } from '@md-modules/shared/mock';
 
 interface Context {
-  products?: Travels[];
+  travels?: Travel[];
   isLoading: boolean;
 }
 
 const TravelListAPIContext = React.createContext<Context>({
-  products: [],
+  travels: [],
   isLoading: false
 });
 
@@ -20,7 +20,7 @@ const TravelListAPIContextProvider: React.FC = ({ children }) => {
   return (
     <TravelListAPIContext.Provider
       value={{
-        products: data,
+        travels: data,
         isLoading: loading
       }}
     >
