@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const CreateButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
   margin: 10px 30px;
+  justify-content: flex-end;
 `;
 
 export const CardsWrapper = styled.div`

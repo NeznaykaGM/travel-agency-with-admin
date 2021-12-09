@@ -21,4 +21,6 @@ export const WButton = styled.div<{ preset?: ButtonPresets }>`
 
 export const BWrapper = styled.div`
   user-select: none;
+
+  ${({ theme }) => theme.templates.centerContent};
 `;
