@@ -3,7 +3,6 @@ import { Trip } from '@md-modules/shared/mock';
 import { CreateTripInput } from '@md-modules/agency/control-panel/layers/api';
 
 export const useLocalStorage = () => {
-  // TODO make Either or somethink handle undefined
   const getTrips = (): Trip[] | undefined => {
     try {
       return JSON.parse(localStorage.getItem('trips') as string) || [];
