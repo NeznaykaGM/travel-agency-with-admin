@@ -15,10 +15,11 @@ import {
 
 interface Props {
   data: Trip;
+  onEdit: (data: Trip) => void;
   onRemove: (id: string) => void;
 }
 
-const Card: React.FC<Props> = ({ data, onRemove }) => {
+const Card: React.FC<Props> = ({ data, onRemove, onEdit }) => {
   return (
     <Wrapper>
       <PTWrapper>
@@ -26,11 +27,11 @@ const Card: React.FC<Props> = ({ data, onRemove }) => {
         <Title>{data.title}</Title>
       </PTWrapper>
 
-      <Price>{data.price}</Price>
+      <Price>${data.price}</Price>
 
       <ButtonsWrapper>
         <IconButton preset='trash' onClick={() => onRemove(data.id)} />
-        <IconButton preset='bluePencil' />
+        <IconButton preset='bluePencil' onClick={() => onEdit(data)} />
       </ButtonsWrapper>
     </Wrapper>
   );

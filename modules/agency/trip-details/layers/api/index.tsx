@@ -1,30 +1,28 @@
 import React from 'react';
 // hooks
 import { useRouter } from 'next/router';
-// query
-import { useQuery } from '@md-utils/mock/query';
+import { useLocalStorage } from '@md-utils/localstorage';
 // mock
-import { Trip, TRIPS } from '@md-modules/shared/mock';
+import { Trip } from '@md-modules/shared/mock';
 
 interface Context {
-  travel?: Trip;
-  isLoading: boolean;
+  trip?: Trip;
 }
 
-const TripDetailsAPIContext = React.createContext<Context>({
-  isLoading: false
-});
+const TripDetailsAPIContext = React.createContext<Context>({});
 
 const TripDetailsAPIContextProvider: React.FC = ({ children }) => {
   const { query } = useRouter();
+  const { getTrips } = useLocalStorage();
 
-  const { data, loading } = useQuery(TRIPS.find((e) => e.id.toString() == query.id));
+  const trips = getTrips();
+
+  const trip = trips?.find((e) => e.id.toString() == query.id);
 
   return (
     <TripDetailsAPIContext.Provider
       value={{
-        travel: data,
-        isLoading: loading
+        trip
       }}
     >
       {children}

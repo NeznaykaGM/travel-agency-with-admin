@@ -1,30 +1,24 @@
 import * as React from 'react';
 // utils
-import { useQuery } from '@md-utils/mock/query';
 import { useLocalStorage } from '@md-utils/localstorage';
 // mock
 import { Trip } from '@md-modules/shared/mock';
 
 interface Context {
   trips?: Trip[];
-  isLoading: boolean;
 }
 
 const TripListAPIContext = React.createContext<Context>({
-  trips: [],
-  isLoading: false
+  trips: []
 });
 
 const TripListAPIContextProvider: React.FC = ({ children }) => {
-  const { getTrips } = useLocalStorage<Trip>();
-
-  const { data, loading } = useQuery<Trip[]>(getTrips());
+  const { getTrips } = useLocalStorage();
 
   return (
     <TripListAPIContext.Provider
       value={{
-        trips: data,
-        isLoading: loading
+        trips: getTrips()
       }}
     >
       {children}

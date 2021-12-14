@@ -1,5 +1,5 @@
 import React from 'react';
-import SignIn from '@md-modules/agency/sign-in/sign-in';
+import SignIn from '@md-modules/agency/sign-in';
 
 const SignInPage = () => <SignIn />;
 

@@ -1,6 +1,7 @@
 import * as React from 'react';
+// components
 import Header from '@md-ui/header';
-// view components
+// view
 import { Wrapper } from './views';
 
 interface Props {

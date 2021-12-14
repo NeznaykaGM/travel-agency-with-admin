@@ -19,8 +19,9 @@ export const WButton = styled.div<{ preset?: ButtonPresets }>`
   ${({ preset }) => preset && buttonPresets[preset]};
 `;
 
-export const BWrapper = styled.div`
+export const BWrapper = styled.button`
   user-select: none;
+  border: none;
 
   ${({ theme }) => theme.templates.centerContent};
 `;

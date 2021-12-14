@@ -1,16 +1,54 @@
 import React from 'react';
 // context
 import { TripDetailsAPIContext } from '../api';
-// components
-import { ContentLoader } from '@md-ui/loaders/content-loader';
+// views
+import {
+  Icon,
+  Photo,
+  Price,
+  Title,
+  Wrapper,
+  Description,
+  RightContainer,
+  SectionsWrapper,
+  LPContainer,
+  InnerWrapper,
+  SubTitle
+} from '@md-modules/agency/trip-details/layers/presentation/views';
 
 const TripDetailsPresentation = () => {
-  const { travel, isLoading } = React.useContext(TripDetailsAPIContext);
+  const { trip } = React.useContext(TripDetailsAPIContext);
 
   return (
-    <ContentLoader isLoading={isLoading}>
-      <img src={travel?.img} alt={travel?.img} />
-    </ContentLoader>
+    <Wrapper>
+      <SectionsWrapper>
+        <InnerWrapper>
+          <Photo src={trip?.img} alt={trip?.img} />
+
+          <RightContainer>
+            <div>
+              <LPContainer>
+                <Icon src='/static/images/calendar.png' alt='calendar' />
+                <SubTitle>{trip?.period} days</SubTitle>
+              </LPContainer>
+
+              <LPContainer>
+                <Icon src='/static/images/location-marker.png' alt='location-marker' />
+                <SubTitle>{trip?.country}</SubTitle>
+              </LPContainer>
+
+              <Title>{trip?.title}</Title>
+
+              <Description>{trip?.description}</Description>
+            </div>
+
+            <div>
+              <Price>${trip?.price}</Price>
+            </div>
+          </RightContainer>
+        </InnerWrapper>
+      </SectionsWrapper>
+    </Wrapper>
   );
 };
 

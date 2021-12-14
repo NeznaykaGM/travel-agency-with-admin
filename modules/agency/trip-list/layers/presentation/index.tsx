@@ -4,7 +4,6 @@ import styled from 'styled-components';
 // context
 import { TripListAPIContext } from '@md-modules/agency/trip-list/layers/api';
 // components
-import { ContentLoader } from '@md-ui/loaders/content-loader';
 import Card from '@md-modules/agency/trip-list/layers/presentation/components/card';
 
 export const CardsWrapper = styled.div`
@@ -22,16 +21,14 @@ export const CardsWrapper = styled.div`
 `;
 
 const TripListPresentation = () => {
-  const { isLoading, trips } = React.useContext(TripListAPIContext);
+  const { trips } = React.useContext(TripListAPIContext);
 
   return (
-    <ContentLoader isEmpty={!trips?.length} isLoading={isLoading}>
-      <CardsWrapper>
-        {trips?.map((travel) => (
-          <Card key={travel.id} data={travel} />
-        ))}
-      </CardsWrapper>
-    </ContentLoader>
+    <CardsWrapper>
+      {trips?.map((travel) => (
+        <Card key={travel.id} data={travel} />
+      ))}
+    </CardsWrapper>
   );
 };
 

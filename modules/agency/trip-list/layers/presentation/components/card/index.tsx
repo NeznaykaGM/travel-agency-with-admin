@@ -15,7 +15,7 @@ interface Props {
 const Card: React.FC<Props> = ({ data }) => {
   const { push } = useRouter();
 
-  const onViewDetails = () => push(`/travel-details/${data.id}`);
+  const onViewDetails = () => push(`/trip-details/${data.id}`);
 
   return (
     <Wrapper>
@@ -31,12 +31,12 @@ const Card: React.FC<Props> = ({ data }) => {
 
         <LPContainer>
           <Icon src='/static/images/calendar.png' alt='calendar' />
-          <SubTitle>{data.period}</SubTitle>
+          <SubTitle>{data.period} days</SubTitle>
         </LPContainer>
       </LPWrapper>
 
       <PriceWrapper>
-        <Price>{data.price}</Price>/Per person
+        <Price>${data.price}</Price>/Per person
       </PriceWrapper>
 
       <ImageButton onClick={onViewDetails}>view more</ImageButton>

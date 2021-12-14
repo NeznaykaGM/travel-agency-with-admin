@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  padding: 50px;
+export const Wrapper = styled.form`
   width: 100%;
   height: 100%;
   max-width: 500px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ControlPanelContainer from '@md-modules/agency/control-panel';
-import { MainLayout } from '@md-modules/shared/layouts/main';
+import { MainLayout } from '@md-modules/shared/layout/main';
 
 const ControlPanelPage = () => (
   <MainLayout hideSignInButton>

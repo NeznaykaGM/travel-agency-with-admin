@@ -1,23 +1,36 @@
 import * as React from 'react';
 // utils
+import { uuid } from 'uuidv4';
 import { useLocalStorage } from '@md-utils/localstorage';
 // types
 import { Trip } from '@md-modules/shared/mock';
 
+export interface CreateTripInput {
+  id?: string;
+  img: string;
+  title: string;
+  price: number;
+  period: number;
+  country: string;
+  description: string;
+}
+
 interface Context {
   trips?: Trip[];
-  isLoading: boolean;
-  removeTrip: (id: string) => void;
+  deleteTrip: (id: string) => void;
+  editTrip: (data: CreateTripInput) => void;
+  createTrip: (data: CreateTripInput) => void;
 }
 
 const ControlPanelAPIContext = React.createContext<Context>({
   trips: [],
-  isLoading: false,
-  removeTrip: () => {}
+  editTrip: () => {},
+  deleteTrip: () => {},
+  createTrip: () => {}
 });
 
 const ControlPanelAPIContextProvider: React.FC = ({ children }) => {
-  const { getTrips, removeTrip } = useLocalStorage();
+  const { getTrips, removeTrip, addTrip, updateTrip } = useLocalStorage();
 
   const [trips, setTrips] = React.useState<Trip[] | undefined>(getTrips());
 
@@ -29,12 +42,25 @@ const ControlPanelAPIContextProvider: React.FC = ({ children }) => {
     setTrips(getTrips());
   };
 
+  const createTrip = (data: CreateTripInput) => {
+    addTrip({ ...data, id: uuid() });
+
+    setTrips(getTrips());
+  };
+
+  const editTrip = (data: CreateTripInput) => {
+    updateTrip(data);
+
+    setTrips(getTrips());
+  };
+
   return (
     <ControlPanelAPIContext.Provider
       value={{
         trips,
-        isLoading: false,
-        removeTrip: deleteTrip
+        editTrip,
+        createTrip,
+        deleteTrip
       }}
     >
       {children}

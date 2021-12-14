@@ -25,6 +25,10 @@ export const WHeader = styled.div<{ isScroll: boolean }>`
     height: ${({ isScroll }) => (isScroll ? 28 : 34)}px;
     width: ${({ isScroll }) => (isScroll ? 40 : 50)}px;
   }
+
+  @media (max-width: 768px) {
+    padding: ${({ isScroll }) => (isScroll ? '8px 20px' : '16px 10px')};
+  }
 `;
 
 export const LWrapper = styled.div`

@@ -6,7 +6,7 @@ import Head from 'next/head';
 // providers
 import { ThemeProvider } from 'styled-components';
 // mock
-import { Trip, TRIPS } from '@md-modules/shared/mock';
+import { TRIPS } from '@md-modules/shared/mock';
 // types
 import { AppProps } from 'next/app';
 // local
@@ -16,9 +16,9 @@ import { GlobalStyles } from '@md-styles/global';
 import 'normalize.css/normalize.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const { setTrips, getTrips } = useLocalStorage<Trip>();
+  const { setTrips, getTrips } = useLocalStorage();
 
-  typeof localStorage !== 'undefined' && (getTrips() || setTrips(TRIPS));
+  typeof localStorage !== 'undefined' && (getTrips()?.length || setTrips(TRIPS));
 
   return (
     <div>

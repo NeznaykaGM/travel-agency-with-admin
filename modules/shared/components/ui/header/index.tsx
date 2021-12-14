@@ -6,6 +6,8 @@ import { Logo } from '@md-ui/logos/main';
 // views
 import { LogoText, LWrapper, WHeader } from './views';
 import Button from '@md-ui/button/main';
+// utils
+import { cookiesManager } from '@md-utils/cookies';
 
 interface Props {
   hideSignInButton?: boolean;
@@ -13,6 +15,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ hideSignInButton }) => {
   const { push } = useRouter();
+  const { removeToken } = cookiesManager();
 
   const [isScroll, setIsScroll] = React.useState(false);
 
@@ -33,6 +36,11 @@ const Header: React.FC<Props> = ({ hideSignInButton }) => {
   }, []);
 
   const onSingIn = () => push('/sign-in');
+  const onLogout = () => {
+    push('/');
+
+    removeToken();
+  };
 
   const onHome = () => push('/');
 
@@ -44,6 +52,7 @@ const Header: React.FC<Props> = ({ hideSignInButton }) => {
         <LogoText isScroll={isScroll}>voyage</LogoText>
       </LWrapper>
       {!hideSignInButton && <Button preset='primary' title='Sign in' onClick={onSingIn} />}
+      {hideSignInButton && <Button preset='primary' title='Logout' onClick={onLogout} />}
     </WHeader>
   );
 };
