@@ -9,8 +9,6 @@ export const useLocalStorage = () => {
       return JSON.parse(localStorage.getItem('trips') as string) || [];
     } catch (err) {
       console.error(err);
-
-      return undefined;
     }
   };
 
