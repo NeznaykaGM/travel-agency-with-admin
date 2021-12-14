@@ -1,9 +1,11 @@
 ## Installing
 
+
 > Steps to run application in the DEV environment:
 
 1. `yarn` - install all required packages
-2. `yarn dev` - run local server
+2. copy `.env.example.local` to the root and create `.env.local` file
+3. `yarn dev` - run local server
 
 > Steps to run application in PROD environment:
 
@@ -16,8 +18,3 @@
 1. `type-check` - run the type checking process
 2. `format` - run prettier for your current changes
 3. `lint` - run lint check
-
-## Coding style
-
-- Project has configured `Prettier` which helps stick to rules of coding style.
-- Check the shortcuts for your `IDE` to run `Prettier` for current file
