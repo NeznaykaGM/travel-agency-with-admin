@@ -3,11 +3,9 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
-  min-height: 100vh;
 
   @media (max-width: 768px) {
-    height: unset;
-    padding: 40px;
+    padding: 0 20px;
   }
 `;
 
@@ -20,7 +18,8 @@ export const InnerWrapper = styled.div`
 `;
 
 export const ContainerWrapper = styled.div`
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   padding: 15px;
   display: flex;
   background-color: #fff;
